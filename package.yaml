@@ -1,0 +1,36 @@
+name:
+  ok
+github:
+  hlian/advent
+library:
+  source-dirs: src/
+dependencies:
+  - PSQueue
+  - aeson
+  - arithmoi
+  - array
+  - attoparsec
+  - base
+  - base-prelude
+  - base16-bytestring
+  - base64-bytestring
+  - bytestring
+  - containers
+  - cryptohash
+  - ghc-prim
+  - lens
+  - lens-aeson
+  - monad-loops
+  - multimap
+  - random
+  - random-shuffle
+  - scientific
+  - split
+  - text
+  - unordered-containers
+  - vector
+default-extensions:
+  NoImplicitPrelude
+  , OverloadedStrings
+ghc-options:
+  -O2
