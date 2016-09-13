@@ -2,7 +2,8 @@
 {-# LANGUAGE NoImplicitPrelude          #-}
 {-# LANGUAGE TemplateHaskell            #-}
 
-module Main where
+module S22 where
+
 import BasePrelude hiding ((&), cast)
 import Control.Lens
 
