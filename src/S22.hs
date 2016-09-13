@@ -79,24 +79,16 @@ bpGuard game =
 
 player :: Spell -> Game -> Either Game Game
 player spell =
-  pure . harden
-  >=> hpGuard
-  >=> pure . runEffs
-  >=> pure . cast spell
-  >=> manaCheck
+  pure . harden >=> hpGuard >=> pure . runEffs >=> pure . cast spell >=> manaCheck
   where
     manaCheck game =
       if game ^. mana > 0 then Right game else Left game
-    -- set to `id` on easy mode
-    harden game =
-      game & hp -~ 1
+    harden =
+      if hard then hp -~ 1 else id
 
 boss :: Game -> Either Game Game
 boss =
-  pure . runEffs
-  >=> hpGuard
-  >=> bpGuard
-  >=> pure . attack
+  pure . runEffs >=> hpGuard >=> bpGuard >=> pure . attack
   where
    attack game =
      game & hp -~ damage' game
@@ -134,11 +126,6 @@ main = do
 ------------
 -- utilities
 
--- | maximum number of steps to search for
--- | the program is O(2^n)
-n :: Int
-n = 16
-
 -- | all combinations (without replacement) of a given set
 comb :: Int -> [a] -> [[a]]
 comb 0 _ = [[]]
@@ -150,9 +137,19 @@ comb i set_ = do
 -- initial states (for GHCi use)
 
 start, start', start'' :: Game
--- | the test one
+-- | the game input (winnable in n = 16 on hard)
 start = Game 50 51 0 500 [] 0 9
--- | easy challenge
+-- | an example from the problem (winnable in n = 5 on easy)
 start' = Game 10 14 0 250 [] 0 8
--- | hard challenge
+-- | a second example from the problem (winnable in n = 2 on easy)
 start'' = Game 10 13 0 250 [] 0 8
+
+-- | maximum number of steps to search for
+-- | the program is O(2^n)
+n :: Int
+n = 5
+
+-- | nnh
+hard :: Bool
+hard = False
+
