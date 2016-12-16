@@ -2,8 +2,6 @@ name:
   ok
 github:
   hlian/advent
-library:
-  source-dirs: src/
 dependencies:
   - PSQueue
   - aeson
@@ -16,11 +14,13 @@ dependencies:
   - base64-bytestring
   - bytestring
   - containers
-  - cryptohash
+  - cryptonite
   - ghc-prim
   - lens
   - lens-aeson
+  - memory
   - monad-loops
+  - mtl
   - multimap
   - random
   - random-shuffle
@@ -30,7 +30,10 @@ dependencies:
   - unordered-containers
   - vector
 default-extensions:
-  NoImplicitPrelude
-  , OverloadedStrings
+  - OverloadedStrings
 ghc-options:
   -O2
+executables:
+  d5:
+    main: Main.hs
+    source-dirs: src/2016/
