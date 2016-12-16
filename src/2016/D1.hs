@@ -5,8 +5,11 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE ViewPatterns      #-}
 
+module D1 where
+
 import qualified Data.Text as Text
 import BasePrelude
+
 
 data Direction =
   R | L
