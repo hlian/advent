@@ -2,7 +2,7 @@
 -- stack --resolver lts-7.14 --install-ghc runghc --package lens --package base-prelude
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE ViewPatterns      #-}
-module Main where
+module D20 where
 import           BasePrelude hiding ((&), left)
 import           Control.Lens
 import           D20Input
