@@ -1,12 +1,10 @@
-{-# LANGUAGE OverloadedLists #-}
-
 module D23Input where
 
 import           Data.Vector (Vector)
 import qualified Data.Vector as Vector
 
 data Param = R Char | I Int deriving (Show, Eq)
-data Op = CPY Param Param | DEC Param | INC Param | JNZ Param Param | TGL Param | NOP | PLUS Param Param | MULT Param Param Param deriving (Show, Eq)
+data Op = CPY Param Param | DEC Param | INC Param | JNZ Param Param | TGL Param | MULT Param Param Param deriving (Show, Eq)
 
 input :: Vector Op
 input = [
@@ -17,9 +15,9 @@ input = [
     MULT (R 'a') (R 'b') (R 'd'),
     CPY (I 0) (R 'c'),
     CPY (I 0) (R 'd'),
-    NOP,
-    NOP,
-    NOP,
+    CPY (I 0) (R 'd'),
+    CPY (I 0) (R 'd'),
+    CPY (I 0) (R 'd'),
     DEC (R 'b'),
     CPY (R 'b') (R 'c'),
     CPY (R 'c') (R 'd'),
