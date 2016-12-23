@@ -6,6 +6,16 @@ dependencies:
   - base
   - base-prelude
   - containers
+  - MissingH
+  - split
+  - text
+  - bytestring
+  - megaparsec
+  - regex-compat
+  - pqueue
+  - lens
+  - hashable
+  - unordered-containers
 default-extensions:
   - OverloadedStrings
 ghc-options:
