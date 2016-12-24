@@ -16,6 +16,7 @@ dependencies:
   - lens
   - hashable
   - unordered-containers
+  - vector
 default-extensions:
   - OverloadedStrings
 ghc-options:
